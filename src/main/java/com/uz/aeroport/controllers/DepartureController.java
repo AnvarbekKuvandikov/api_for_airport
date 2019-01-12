@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Jack on 26.12.2018.
  */
@@ -26,7 +28,12 @@ public class DepartureController
     public ResponseEntity<DepartureDto> getOne(@PathVariable Long id){
         DepartureDto departureDto = departureService.findOne(id);
         return ResponseEntity.ok(departureDto);
-
+    }
+    @GetMapping
+    public  ResponseEntity<List<DepartureDto>> getAll()
+    {
+        List<DepartureDto> list = departureService.getAll();
+        return ResponseEntity.ok(list);
     }
 
 

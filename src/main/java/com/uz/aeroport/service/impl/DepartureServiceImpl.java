@@ -8,6 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -40,5 +42,25 @@ public class DepartureServiceImpl implements DepartureService
         DepartureEntity departureEntity1 = departureEntity.get();
         BeanUtils.copyProperties(departureEntity1,departureDto);
         return departureDto;
+    }
+
+    @Override
+    public List<DepartureDto> getAll()
+    {
+        List<DepartureEntity> list = departureRepository.findAll();
+        List<DepartureDto> list1 = new ArrayList<>();
+        list.forEach(departureEntity -> {
+            DepartureDto departureDto = new DepartureDto();
+            departureDto.setId(departureEntity.getId());
+            departureDto.setTime(departureEntity.getTime());
+            departureDto.setTerminal(departureEntity.getTerminal());
+            departureDto.setStatus(departureEntity.getStatus());
+            departureDto.setDestination(departureEntity.getDestination());
+            departureDto.setDepartDate(departureEntity.getDepartDate());
+            departureDto.setFlight(departureEntity.getFlight());
+            departureDto.setStatusTime(departureEntity.getStatusTime());
+            list1.add(departureDto);
+        });
+        return list1;
     }
 }
