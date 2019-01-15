@@ -31,9 +31,9 @@ public class DepartureServiceImpl implements DepartureService
         departureEntity.setStatus(departureDto.getStatus());
         departureEntity.setTerminal(departureDto.getTerminal());
         departureEntity.setTime(departureDto.getTime());
+        departureEntity.setStatusTime(departureDto.getStatusTime());
         departureRepository.save(departureEntity);
     }
-
     @Override
     public DepartureDto findOne(Long id)
     {

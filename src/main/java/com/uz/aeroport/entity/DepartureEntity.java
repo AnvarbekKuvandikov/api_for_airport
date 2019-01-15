@@ -14,7 +14,7 @@ public class DepartureEntity
     @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "TIMESTAMP without time zone default CURRENT_TIMESTAMP")
     private Date departDate;
 
     @Column
@@ -30,7 +30,7 @@ public class DepartureEntity
     @Column(name = "status")
     private Status status;
 
-    @Column
+    @Column(name = "statusTime")
     private String statusTime;
 
     @Column
