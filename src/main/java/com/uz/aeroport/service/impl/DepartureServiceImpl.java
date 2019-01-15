@@ -26,7 +26,7 @@ public class DepartureServiceImpl implements DepartureService
     {
         DepartureEntity departureEntity = new DepartureEntity();
         departureEntity.setDepartDate(departureDto.getDepartDate());
-        departureEntity.setDestination(departureDto.getDestination());
+        departureEntity.setDestinationUzb(departureDto.getDestination());
         departureEntity.setFlight(departureDto.getFlight());
         departureEntity.setStatus(departureDto.getStatus());
         departureEntity.setTerminal(departureDto.getTerminal());
@@ -55,7 +55,7 @@ public class DepartureServiceImpl implements DepartureService
             departureDto.setTime(departureEntity.getTime());
             departureDto.setTerminal(departureEntity.getTerminal());
             departureDto.setStatus(departureEntity.getStatus());
-            departureDto.setDestination(departureEntity.getDestination());
+            departureDto.setDestination(departureEntity.getDestinationUzb());
             departureDto.setDepartDate(departureEntity.getDepartDate());
             departureDto.setFlight(departureEntity.getFlight());
             departureDto.setStatusTime(departureEntity.getStatusTime());

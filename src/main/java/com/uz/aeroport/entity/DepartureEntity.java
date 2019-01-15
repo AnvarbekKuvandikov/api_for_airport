@@ -24,7 +24,14 @@ public class DepartureEntity
     private String flight;
 
     @Column
-    private String destination;
+    private String destinationUzb;
+
+    @Column
+    private String destinationEng;
+
+    @Column
+    private String destinationRus;
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -68,12 +75,12 @@ public class DepartureEntity
         this.flight = flight;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getDestinationUzb() {
+        return destinationUzb;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDestinationUzb(String destinationUzb) {
+        this.destinationUzb = destinationUzb;
     }
 
     public Status getStatus() {
@@ -98,5 +105,21 @@ public class DepartureEntity
 
     public void setTerminal(String terminal) {
         this.terminal = terminal;
+    }
+
+    public String getDestinationEng() {
+        return destinationEng;
+    }
+
+    public void setDestinationEng(String destinationEng) {
+        this.destinationEng = destinationEng;
+    }
+
+    public String getDestinationRus() {
+        return destinationRus;
+    }
+
+    public void setDestinationRus(String destinationRus) {
+        this.destinationRus = destinationRus;
     }
 }
