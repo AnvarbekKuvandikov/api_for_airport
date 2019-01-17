@@ -42,6 +42,8 @@ public class DepartureController
     @GetMapping(value = "/date={date}")
     public ResponseEntity<List<DepartureDto>> getFilterDate(@PathVariable String date) throws ParseException {
         System.out.println(date);
+       // LocalDate localDate = LocalDate.parse(date);
+        //System.out.println(localDate);
         DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
         Date date1 = dateFormat.parse(date);
         System.out.println(date1);
