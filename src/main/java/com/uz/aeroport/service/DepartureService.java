@@ -2,6 +2,7 @@ package com.uz.aeroport.service;
 
 import com.uz.aeroport.dto.DepartureDto;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ public interface DepartureService
     DepartureDto findOne(Long id);
 
     List<DepartureDto> getAll();
+
+    List<DepartureDto> getNew(Date date);
 }
