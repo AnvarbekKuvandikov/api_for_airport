@@ -1,5 +1,7 @@
 package com.uz.aeroport.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,7 +16,9 @@ public class DepartureEntity
     @GeneratedValue
     private Long id;
 
+    @Temporal(TemporalType.DATE)
     @Column(columnDefinition = "TIMESTAMP without time zone default CURRENT_TIMESTAMP")
+    @DateTimeFormat(pattern = "YYYY-MM-DD")
     private Date departDate;
 
     @Column
