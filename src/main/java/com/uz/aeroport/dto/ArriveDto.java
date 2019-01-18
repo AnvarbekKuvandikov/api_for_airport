@@ -17,7 +17,12 @@ public class ArriveDto
 
     private String flight;
 
-    private String destination;
+    private String destinationUzb;
+
+    private String destinationEng;
+
+    private String destinationRus;
+
 
     private Status status;
 
@@ -55,12 +60,12 @@ public class ArriveDto
         this.flight = flight;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getDestinationUzb() {
+        return destinationUzb;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDestinationUzb(String destinationUzb) {
+        this.destinationUzb = destinationUzb;
     }
 
     public Status getStatus() {
@@ -77,5 +82,21 @@ public class ArriveDto
 
     public void setStatusTime(String statusTime) {
         this.statusTime = statusTime;
+    }
+
+    public String getDestinationEng() {
+        return destinationEng;
+    }
+
+    public void setDestinationEng(String destinationEng) {
+        this.destinationEng = destinationEng;
+    }
+
+    public String getDestinationRus() {
+        return destinationRus;
+    }
+
+    public void setDestinationRus(String destinationRus) {
+        this.destinationRus = destinationRus;
     }
 }

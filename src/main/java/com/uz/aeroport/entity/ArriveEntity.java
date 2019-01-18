@@ -14,6 +14,7 @@ public class ArriveEntity
     @GeneratedValue
     private Long id;
 
+    @Temporal(TemporalType.DATE)
     @Column
     private Date departDate;
 
