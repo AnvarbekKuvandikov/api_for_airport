@@ -17,4 +17,6 @@ public interface DepartureService
     List<DepartureDto> getAll();
 
     List<DepartureDto> getNew(Date date);
+
+    void changeById(DepartureDto departureDto);
 }

@@ -46,6 +46,12 @@ public class DepartureController
         List<DepartureDto> list = departureService.getNew(date1);
         return ResponseEntity.ok(list);
     }
+    @PutMapping
+    public ResponseEntity<String> changeDeparture(@RequestBody DepartureDto departureDto)
+    {
+        departureService.changeById(departureDto);
+        return ResponseEntity.ok("Changed");
+    }
 
 
 }

@@ -74,5 +74,17 @@ public class DepartureServiceImpl implements DepartureService
         return null;
     }
 
+    @Override
+    public void changeById(DepartureDto departureDto)
+    {
+        Optional<DepartureEntity> departureEntity = departureRepository.findById(departureDto.getId());
+        if(departureEntity.isPresent())
+        {
+            DepartureEntity departureEntity1 = departureEntity.get();
+            BeanUtils.copyProperties(departureDto,departureEntity1);
+            departureRepository.save(departureEntity1);
+        }
+    }
+
 
 }
