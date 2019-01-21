@@ -7,6 +7,10 @@ import com.uz.aeroport.service.CheckerService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 /**
@@ -31,10 +35,31 @@ public class CheckerServiceImpl implements CheckerService
     @Override
     public boolean updatePassword(UserCheckerDto userCheckerDto)
     {
-        Optional<UserCheckEntity> userCheckEntityOptional = userRepository.findByPassword(userCheckerDto.getPassword());
+        System.out.println(userCheckerDto.getPassword());
+        System.out.println(userCheckerDto.getOldPassword());
+        String stringToHash = userCheckerDto.getOldPassword();
+        String stringToHash1 = userCheckerDto.getPassword();
+        MessageDigest messageDigest = null;
+        try
+        {
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        messageDigest.update(stringToHash.getBytes());
+        byte[] dig = messageDigest.digest();
+        String HashedOutPut = DatatypeConverter.printHexBinary(dig);
+        messageDigest.update(stringToHash1.getBytes());
+        dig = messageDigest.digest();
+        String HashedOutPut1 = DatatypeConverter.printHexBinary(dig);
+        userCheckerDto.setOldPassword(HashedOutPut);
+        userCheckerDto.setPassword(HashedOutPut1);
+        Optional<UserCheckEntity> userCheckEntityOptional = userRepository.findByPassword(userCheckerDto.getOldPassword());
         if(userCheckEntityOptional.isPresent())
         {
             UserCheckEntity userCheckEntity = userCheckEntityOptional.get();
+            userCheckEntity.setOldPassword(userCheckerDto.getPassword());
             userCheckEntity.setPassword(userCheckerDto.getPassword());
             userRepository.save(userCheckEntity);
             return true;

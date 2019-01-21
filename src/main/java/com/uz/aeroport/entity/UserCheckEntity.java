@@ -19,6 +19,9 @@ public class UserCheckEntity
     @Column
     private String password;
 
+    @Column
+    private String oldPassword;
+
     public Long getId() {
         return id;
     }
@@ -41,5 +44,13 @@ public class UserCheckEntity
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
     }
 }
