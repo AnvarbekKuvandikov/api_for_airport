@@ -35,7 +35,7 @@ public class CheckerServiceImpl implements CheckerService
         if(userCheckEntityOptional.isPresent())
         {
             UserCheckEntity userCheckEntity = userCheckEntityOptional.get();
-            userCheckEntity.setPasswords(userCheckerDto.getPassword());
+            userCheckEntity.setPassword(userCheckerDto.getPassword());
             userRepository.save(userCheckEntity);
             return true;
         }

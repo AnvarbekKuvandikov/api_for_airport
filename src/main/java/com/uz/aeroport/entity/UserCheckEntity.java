@@ -17,7 +17,7 @@ public class UserCheckEntity
     private String login;
 
     @Column
-    private String passwords;
+    private String password;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class UserCheckEntity
         this.login = login;
     }
 
-    public String getPasswords() {
-        return passwords;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswords(String passwords) {
-        this.passwords = passwords;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

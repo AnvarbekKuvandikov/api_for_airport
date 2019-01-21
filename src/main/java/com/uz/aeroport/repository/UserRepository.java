@@ -12,9 +12,9 @@ import java.util.Optional;
  */
 public interface UserRepository extends JpaRepository<UserCheckEntity,Long>
 {
-    @Query(value = "select id,login,passwords from userss where passwords = (:password)",nativeQuery = true)
+    @Query(value = "select id,login,password from userss where password = (:password)",nativeQuery = true)
     Optional<UserCheckEntity> findByPassword(@Param("password") String password);
 
-    @Query(value = "select id,login,passwords from userss where login = (:admin)",nativeQuery = true)
+    @Query(value = "select id,login,password from userss where login = (:admin)",nativeQuery = true)
     UserCheckEntity findByLogin(@Param("admin") String admin);
 }
