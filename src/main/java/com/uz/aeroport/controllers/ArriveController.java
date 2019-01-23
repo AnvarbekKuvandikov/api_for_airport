@@ -1,16 +1,15 @@
 package com.uz.aeroport.controllers;
 
 import com.uz.aeroport.dto.ArriveDto;
-import com.uz.aeroport.dto.DepartureDto;
 import com.uz.aeroport.service.ArriveService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,11 +29,6 @@ public class ArriveController
         arriveService.create(arriveDto);
         return ResponseEntity.ok("Muvoffaqiyatli saqlandi");
     }
-    @GetMapping
-    public ResponseEntity <String> fetchResult(@RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate)
-    {
-        return ResponseEntity.ok(fromDate.toString());
-    }
     @GetMapping(value = "/id={id}")
     public ResponseEntity<ArriveDto> getOne(@PathVariable Long id)
     {
@@ -48,5 +42,16 @@ public class ArriveController
         System.out.println(date);
         List<ArriveDto> list = arriveService.getByFilter(date1);
         return ResponseEntity.ok(list);
+    }
+    @GetMapping
+    public ResponseEntity<List<ArriveDto>> getAll(){
+        List<ArriveDto> list = new ArrayList<>();
+        list = arriveService.getAll();
+        return ResponseEntity.ok(list);
+    }
+    @PutMapping
+    public ResponseEntity<String> changeArrival(@RequestBody ArriveDto arriveDto){
+        arriveService.changedById(arriveDto);
+        return ResponseEntity.ok("Changed");
     }
 }

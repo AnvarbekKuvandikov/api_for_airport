@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -50,5 +51,38 @@ public class ArriveServiceImpl implements ArriveService
     public List<ArriveDto> getByFilter(Date date1)
     {
         return null;
+    }
+
+    @Override
+    public List<ArriveDto> getAll()
+    {
+        List<ArriveDto> list = new ArrayList<>();
+        List<ArriveEntity> l = arriveRepository.findAll();
+        l.forEach(arriveEntity ->
+        {
+            ArriveDto arriveDto = new ArriveDto();
+            arriveDto.setId(arriveEntity.getId());
+            arriveDto.setDestinationUzb(arriveEntity.getDestinationUzb());
+            arriveDto.setDepartDate(arriveEntity.getDepartDate());
+            arriveDto.setDestinationEng(arriveEntity.getDestinationEng());
+            arriveDto.setDestinationRus(arriveEntity.getDestinationRus());
+            arriveDto.setFlight(arriveEntity.getFlight());
+            arriveDto.setTime(arriveEntity.getTime());
+            arriveDto.setStatus(arriveEntity.getStatus());
+            arriveDto.setStatusTime(arriveEntity.getStatusTime());
+            list.add(arriveDto);
+        });
+        return list;
+    }
+
+    @Override
+    public void changedById(ArriveDto arriveDto)
+    {
+        Optional<ArriveEntity> optional = arriveRepository.findById(arriveDto.getId());
+        if(optional.isPresent()){
+            ArriveEntity arriveEntity = optional.get();
+            BeanUtils.copyProperties(arriveDto,arriveEntity);
+            arriveRepository.save(arriveEntity);
+        }
     }
 }

@@ -16,4 +16,8 @@ public interface ArriveService
     ArriveDto findOne(Long id);
 
     List<ArriveDto> getByFilter(Date date1);
+
+    List<ArriveDto> getAll();
+
+    void changedById(ArriveDto arriveDto);
 }
