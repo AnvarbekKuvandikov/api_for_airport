@@ -8,8 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,8 +70,26 @@ public class DepartureServiceImpl implements DepartureService
     }
 
     @Override
-    public List<DepartureDto> getNew(Date date) {
-        return null;
+    public List<DepartureDto> getNew(LocalDate date)
+    {
+        List<DepartureEntity> departureEntity1 = departureRepository.findByDate(date);
+        List<DepartureDto> departureDtos = new ArrayList<>();
+        departureEntity1.forEach(dp ->
+        {
+            DepartureDto departureDto = new DepartureDto();
+            departureDto.setId(dp.getId());
+            departureDto.setDestinationEng(dp.getDestinationEng());
+            departureDto.setDestinationRus(dp.getDestinationRus());
+            departureDto.setDestinationUzb(dp.getDestinationUzb());
+            departureDto.setDepartDate(dp.getDepartDate());
+            departureDto.setStatusTime(dp.getStatusTime());
+            departureDto.setStatus(dp.getStatus());
+            departureDto.setFlight(dp.getFlight());
+            departureDto.setTerminal(dp.getTerminal());
+            departureDto.setTime(dp.getTime());
+            departureDtos.add(departureDto);
+        });
+        return departureDtos;
     }
 
     @Override

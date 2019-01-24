@@ -8,8 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,11 +48,25 @@ public class ArriveServiceImpl implements ArriveService
     }
 
     @Override
-    public List<ArriveDto> getByFilter(Date date1)
+    public List<ArriveDto> getByFilter(LocalDate date1)
     {
-        return null;
+        List<ArriveDto> arriveDtos = new ArrayList<>();
+        List<ArriveEntity> arriveEntities = arriveRepository.fidByDate(date1);
+        arriveEntities.forEach(arriveEntity -> {
+            ArriveDto arriveDto = new ArriveDto();
+            arriveDto.setId(arriveEntity.getId());
+            arriveDto.setFlight(arriveEntity.getFlight());
+            arriveDto.setTime(arriveEntity.getTime());
+            arriveDto.setDestinationUzb(arriveEntity.getDestinationUzb());
+            arriveDto.setDestinationEng(arriveEntity.getDestinationEng());
+            arriveDto.setDestinationRus(arriveEntity.getDestinationRus());
+            arriveDto.setDepartDate(arriveEntity.getDepartDate());
+            arriveDto.setStatus(arriveEntity.getStatus());
+            arriveDto.setStatusTime(arriveEntity.getStatusTime());
+            arriveDtos.add(arriveDto);
+        });
+        return arriveDtos;
     }
-
     @Override
     public List<ArriveDto> getAll()
     {

@@ -2,7 +2,7 @@ package com.uz.aeroport.service;
 
 import com.uz.aeroport.dto.ArriveDto;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -15,7 +15,7 @@ public interface ArriveService
 
     ArriveDto findOne(Long id);
 
-    List<ArriveDto> getByFilter(Date date1);
+    List<ArriveDto> getByFilter(LocalDate date1);
 
     List<ArriveDto> getAll();
 

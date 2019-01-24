@@ -2,7 +2,7 @@ package com.uz.aeroport.service;
 
 import com.uz.aeroport.dto.DepartureDto;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -16,7 +16,7 @@ public interface DepartureService
 
     List<DepartureDto> getAll();
 
-    List<DepartureDto> getNew(Date date);
+    List<DepartureDto> getNew(LocalDate date);
 
     void changeById(DepartureDto departureDto);
 }

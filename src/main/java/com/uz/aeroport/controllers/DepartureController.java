@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -40,8 +38,8 @@ public class DepartureController
     }
     @GetMapping(value = "/date={date}")
     public ResponseEntity<List<DepartureDto>> getFilterDate(@PathVariable String date) throws ParseException {
-        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
-        Date date1 = dateFormat.parse(date);
+        System.out.println("birinchi:"+date);
+        LocalDate date1 = LocalDate.parse(date);
         System.out.println(date1);
         List<DepartureDto> list = departureService.getNew(date1);
         return ResponseEntity.ok(list);
