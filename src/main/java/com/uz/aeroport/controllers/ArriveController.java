@@ -40,7 +40,7 @@ public class ArriveController
         return ResponseEntity.ok(list);
     }
     @GetMapping
-    public ResponseEntity<List<ArriveDto>> getAll(){
+    public ResponseEntity<List<ArriveDto >> getAll(){
         List<ArriveDto> list = new ArrayList<>();
         list = arriveService.getAll();
         return ResponseEntity.ok(list);

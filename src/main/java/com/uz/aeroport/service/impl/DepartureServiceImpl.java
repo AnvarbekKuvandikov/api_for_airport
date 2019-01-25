@@ -35,6 +35,7 @@ public class DepartureServiceImpl implements DepartureService
         departureEntity.setTerminal(departureDto.getTerminal());
         departureEntity.setTime(departureDto.getTime());
         departureEntity.setStatusTime(departureDto.getStatusTime());
+        departureEntity.setAirlineId(departureDto.getAirlineId());
         departureRepository.save(departureEntity);
     }
     @Override
@@ -64,6 +65,7 @@ public class DepartureServiceImpl implements DepartureService
             departureDto.setDepartDate(departureEntity.getDepartDate());
             departureDto.setFlight(departureEntity.getFlight());
             departureDto.setStatusTime(departureEntity.getStatusTime());
+            departureDto.setAirlineId(departureEntity.getAirlineId());
             list1.add(departureDto);
         });
         return list1;
@@ -87,6 +89,7 @@ public class DepartureServiceImpl implements DepartureService
             departureDto.setFlight(dp.getFlight());
             departureDto.setTerminal(dp.getTerminal());
             departureDto.setTime(dp.getTime());
+            departureDto.setAirlineId(dp.getAirlineId());
             departureDtos.add(departureDto);
         });
         return departureDtos;

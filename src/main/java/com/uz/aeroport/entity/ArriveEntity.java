@@ -37,6 +37,13 @@ public class ArriveEntity
     @Column(name = "status")
     private Status status;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "airlineId",insertable = false,updatable = false)
+    private AirLinesEntity airLinesEntity;
+
+    @Column(name = "airlineId")
+    private Long airlineId;
+
     @Column
     private String statusTime;
 
@@ -110,5 +117,21 @@ public class ArriveEntity
 
     public void setDestinationEng(String destinationEng) {
         this.destinationEng = destinationEng;
+    }
+
+    public AirLinesEntity getAirLinesEntity() {
+        return airLinesEntity;
+    }
+
+    public void setAirLinesEntity(AirLinesEntity airLinesEntity) {
+        this.airLinesEntity = airLinesEntity;
+    }
+
+    public Long getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(Long airlineId) {
+        this.airlineId = airlineId;
     }
 }

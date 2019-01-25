@@ -23,6 +23,7 @@ public class ArriveDto
 
     private String destinationRus;
 
+    private Long airlineId;
 
     private Status status;
 
@@ -98,5 +99,13 @@ public class ArriveDto
 
     public void setDestinationRus(String destinationRus) {
         this.destinationRus = destinationRus;
+    }
+
+    public Long getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(Long airlineId) {
+        this.airlineId = airlineId;
     }
 }

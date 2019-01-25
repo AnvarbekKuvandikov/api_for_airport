@@ -28,6 +28,8 @@ public class DepartureDto {
 
     private String terminal;
 
+    private Long airlineId;
+
     public Long getId() {
         return id;
     }
@@ -106,5 +108,13 @@ public class DepartureDto {
 
     public void setDestinationRus(String destinationRus) {
         this.destinationRus = destinationRus;
+    }
+
+    public Long getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(Long airlineId) {
+        this.airlineId = airlineId;
     }
 }

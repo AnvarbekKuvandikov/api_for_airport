@@ -36,6 +36,13 @@ public class DepartureEntity
     @Column
     private String destinationRus;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "airlineId",insertable = false,updatable = false)
+    private AirLinesEntity airLinesEntity;
+
+    @Column(name = "airlineId")
+    private Long airlineId;
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -125,5 +132,21 @@ public class DepartureEntity
 
     public void setDestinationRus(String destinationRus) {
         this.destinationRus = destinationRus;
+    }
+
+    public AirLinesEntity getAirLinesEntity() {
+        return airLinesEntity;
+    }
+
+    public void setAirLinesEntity(AirLinesEntity airLinesEntity) {
+        this.airLinesEntity = airLinesEntity;
+    }
+
+    public Long getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(Long airlineId) {
+        this.airlineId = airlineId;
     }
 }

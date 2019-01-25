@@ -34,6 +34,7 @@ public class ArriveServiceImpl implements ArriveService
         arriveEntity.setFlight(dto.getFlight());
         arriveEntity.setStatus(dto.getStatus());
         arriveEntity.setStatusTime(dto.getStatusTime());
+        arriveEntity.setAirlineId(dto.getAirlineId());
         arriveRepository.save(arriveEntity);
     }
 
@@ -63,6 +64,7 @@ public class ArriveServiceImpl implements ArriveService
             arriveDto.setArriveDate(arriveEntity.getArriveDate());
             arriveDto.setStatus(arriveEntity.getStatus());
             arriveDto.setStatusTime(arriveEntity.getStatusTime());
+            arriveDto.setAirlineId(arriveEntity.getAirlineId());
             arriveDtos.add(arriveDto);
         });
         return arriveDtos;
@@ -84,6 +86,7 @@ public class ArriveServiceImpl implements ArriveService
             arriveDto.setTime(arriveEntity.getTime());
             arriveDto.setStatus(arriveEntity.getStatus());
             arriveDto.setStatusTime(arriveEntity.getStatusTime());
+            arriveDto.setAirlineId(arriveEntity.getAirlineId());
             list.add(arriveDto);
         });
         return list;
