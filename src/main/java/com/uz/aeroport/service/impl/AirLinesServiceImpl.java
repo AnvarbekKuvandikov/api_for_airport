@@ -8,6 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -39,5 +41,19 @@ public class AirLinesServiceImpl implements AirLinesService {
             return airlinesDto;
         }
         return null;
+    }
+
+    @Override
+    public List<AirlinesDto> getAll()
+    {
+        List<AirLinesEntity> linesEntities = airLinesRepository.findAll();
+        List<AirlinesDto> result = new ArrayList<>();
+        linesEntities.forEach(airLinesEntity -> {
+            AirlinesDto airlinesDto = new AirlinesDto();
+            airlinesDto.setNameAirline(airLinesEntity.getNameAirline());
+            airlinesDto.setId(airLinesEntity.getId());
+            result.add(airlinesDto);
+        });
+        return result;
     }
 }

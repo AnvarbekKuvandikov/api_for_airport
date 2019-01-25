@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Jack on 25.01.2019.
  */
@@ -17,15 +19,20 @@ public class AirLinesController
     private AirLinesService airLinesService;
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody AirlinesDto airlinesDto){
+    private ResponseEntity<String> create(@RequestBody AirlinesDto airlinesDto){
         airLinesService.create(airlinesDto);
         return ResponseEntity.ok("Qo`shildi");
     }
 
-    @GetMapping
-    public ResponseEntity<AirlinesDto> getById(@PathVariable Long id)
+    @GetMapping(value = "/id={id}")
+    private ResponseEntity<AirlinesDto> getById(@PathVariable Long id)
     {
         AirlinesDto airlinesDto = airLinesService.getById(id);
         return ResponseEntity.ok(airlinesDto);
+    }
+    @GetMapping
+    private ResponseEntity<List<AirlinesDto>> getAll(){
+        List<AirlinesDto> list = airLinesService.getAll();
+        return ResponseEntity.ok(list);
     }
 }
