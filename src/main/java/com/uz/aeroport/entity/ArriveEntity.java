@@ -16,7 +16,7 @@ public class ArriveEntity
 
     @Temporal(TemporalType.DATE)
     @Column
-    private Date departDate;
+    private Date arriveDate;
 
     @Column
     private String time;
@@ -48,12 +48,12 @@ public class ArriveEntity
         this.id = id;
     }
 
-    public Date getDepartDate() {
-        return departDate;
+    public Date getArriveDate() {
+        return arriveDate;
     }
 
-    public void setDepartDate(Date departDate) {
-        this.departDate = departDate;
+    public void setArriveDate(Date arriveDate) {
+        this.arriveDate = arriveDate;
     }
 
     public String getTime() {

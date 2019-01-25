@@ -11,7 +11,7 @@ public class ArriveDto
 {
     private Long id;
 
-    private Date departDate;
+    private Date arriveDate;
 
     private String time;
 
@@ -36,12 +36,12 @@ public class ArriveDto
         this.id = id;
     }
 
-    public Date getDepartDate() {
-        return departDate;
+    public Date getArriveDate() {
+        return arriveDate;
     }
 
-    public void setDepartDate(Date departDate) {
-        this.departDate = departDate;
+    public void setArriveDate(Date arriveDate) {
+        this.arriveDate = arriveDate;
     }
 
     public String getTime() {

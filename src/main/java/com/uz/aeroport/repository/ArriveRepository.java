@@ -14,6 +14,6 @@ import java.util.List;
 public interface ArriveRepository extends JpaRepository<ArriveEntity,Long>
 {
 
-    @Query(value = "select * from depart where depart_date = (:date1)",nativeQuery = true)
+    @Query(value = "select * from arrive where arrive_date = (:date1)",nativeQuery = true)
     List<ArriveEntity> fidByDate(@Param("date1") LocalDate date1);
 }

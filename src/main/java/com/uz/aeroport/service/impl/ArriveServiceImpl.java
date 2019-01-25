@@ -27,7 +27,7 @@ public class ArriveServiceImpl implements ArriveService
     {
         ArriveEntity arriveEntity = new ArriveEntity();
         arriveEntity.setTime(dto.getTime());
-        arriveEntity.setDepartDate(dto.getDepartDate());
+        arriveEntity.setArriveDate(dto.getArriveDate());
         arriveEntity.setDestinationUzb(dto.getDestinationUzb());
         arriveEntity.setDestinationRus(dto.getDestinationRus());
         arriveEntity.setDestinationEng(dto.getDestinationEng());
@@ -60,7 +60,7 @@ public class ArriveServiceImpl implements ArriveService
             arriveDto.setDestinationUzb(arriveEntity.getDestinationUzb());
             arriveDto.setDestinationEng(arriveEntity.getDestinationEng());
             arriveDto.setDestinationRus(arriveEntity.getDestinationRus());
-            arriveDto.setDepartDate(arriveEntity.getDepartDate());
+            arriveDto.setArriveDate(arriveEntity.getArriveDate());
             arriveDto.setStatus(arriveEntity.getStatus());
             arriveDto.setStatusTime(arriveEntity.getStatusTime());
             arriveDtos.add(arriveDto);
@@ -77,7 +77,7 @@ public class ArriveServiceImpl implements ArriveService
             ArriveDto arriveDto = new ArriveDto();
             arriveDto.setId(arriveEntity.getId());
             arriveDto.setDestinationUzb(arriveEntity.getDestinationUzb());
-            arriveDto.setDepartDate(arriveEntity.getDepartDate());
+            arriveDto.setArriveDate(arriveEntity.getArriveDate());
             arriveDto.setDestinationEng(arriveEntity.getDestinationEng());
             arriveDto.setDestinationRus(arriveEntity.getDestinationRus());
             arriveDto.setFlight(arriveEntity.getFlight());
