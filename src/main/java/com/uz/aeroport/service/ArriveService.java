@@ -1,6 +1,7 @@
 package com.uz.aeroport.service;
 
 import com.uz.aeroport.dto.ArriveDto;
+import com.uz.aeroport.dto.ArriveTerminalDto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,4 +21,8 @@ public interface ArriveService
     List<ArriveDto> getAll();
 
     void changedById(ArriveDto arriveDto);
+
+    List<ArriveTerminalDto> getToShow(LocalDate date1);
+
+
 }

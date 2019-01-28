@@ -1,6 +1,7 @@
 package com.uz.aeroport.controllers;
 
 import com.uz.aeroport.dto.ArriveDto;
+import com.uz.aeroport.dto.ArriveTerminalDto;
 import com.uz.aeroport.service.ArriveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,4 +51,11 @@ public class ArriveController
         arriveService.changedById(arriveDto);
         return ResponseEntity.ok("Changed");
     }
+    @GetMapping(value = "/terminal/date={date}")
+    public ResponseEntity<List<ArriveTerminalDto>> getToShow(@PathVariable String date){
+        LocalDate date1 = LocalDate.parse(date);
+        List<ArriveTerminalDto> list = arriveService.getToShow(date1);
+        return ResponseEntity.ok(list);
+    }
+
 }

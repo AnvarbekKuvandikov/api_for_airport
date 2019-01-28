@@ -16,4 +16,9 @@ public interface DepartureRepository extends JpaRepository<DepartureEntity,Long>
 
     @Query(value = "select * from depart where depart_date = (:date)",nativeQuery = true)
     List<DepartureEntity> findByDate(@Param("date") LocalDate date);
+
+    @Query(value = "select depart.time , air_lines.image,depart.destination_uzb," +
+            "depart.destination_rus,depart.destination_eng,depart.flight,depart.terminal,depart.status,depart.status_time" +
+            " from depart inner join air_lines on air_lines.id = depart.airline_id  where depart.depart_date = (:date1)",nativeQuery = true)
+    List<Object[]> findForDepartTerminal(@Param("date1")LocalDate date1);
 }

@@ -1,6 +1,7 @@
 package com.uz.aeroport.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "Arrive")
-public class ArriveEntity
+public class ArriveEntity implements Serializable
 {
     @Id
     @GeneratedValue

@@ -6,7 +6,7 @@ package com.uz.aeroport.dto;
 public class AirlinesDto
 {
     private Long id;
-    private byte[] image;
+    private String image;
     private String nameAirline;
 
     public Long getId() {
@@ -17,11 +17,11 @@ public class AirlinesDto
         this.id = id;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

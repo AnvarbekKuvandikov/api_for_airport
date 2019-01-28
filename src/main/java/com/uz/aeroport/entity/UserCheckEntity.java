@@ -1,13 +1,14 @@
 package com.uz.aeroport.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Jack on 20.01.2019.
  */
 @Entity
 @Table(name = "userss")
-public class UserCheckEntity
+public class UserCheckEntity implements Serializable
 {
     @Id
     @GeneratedValue

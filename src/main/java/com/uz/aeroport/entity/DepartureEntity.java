@@ -3,6 +3,7 @@ package com.uz.aeroport.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "Depart")
-public class DepartureEntity
+public class DepartureEntity implements Serializable
 {
     @Id
     @GeneratedValue

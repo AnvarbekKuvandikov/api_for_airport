@@ -1,6 +1,7 @@
 package com.uz.aeroport.service.impl;
 
 import com.uz.aeroport.dto.ArriveDto;
+import com.uz.aeroport.dto.ArriveTerminalDto;
 import com.uz.aeroport.entity.ArriveEntity;
 import com.uz.aeroport.repository.ArriveRepository;
 import com.uz.aeroport.service.ArriveService;
@@ -102,4 +103,27 @@ public class ArriveServiceImpl implements ArriveService
             arriveRepository.save(arriveEntity);
         }
     }
+
+    @Override
+    public List<ArriveTerminalDto> getToShow(LocalDate date1)
+    {
+        List<Object[]> list1 = arriveRepository.getForArriveTerminal(date1);
+        List<ArriveTerminalDto> lists = new ArrayList<>();
+        list1.forEach(objects ->
+        {
+            ArriveTerminalDto arriveTerminalDto = new ArriveTerminalDto();
+            arriveTerminalDto.setTime((String)objects[0]);
+            arriveTerminalDto.setLogo((String)objects[1]);
+            arriveTerminalDto.setDestinationUzb((String)objects[2]);
+            arriveTerminalDto.setDestinationRus((String)objects[3]);
+            arriveTerminalDto.setDestinationEng((String)objects[4]);
+            arriveTerminalDto.setFlight((String)objects[5]);
+            arriveTerminalDto.setStatus((String)objects[6]);
+            arriveTerminalDto.setStatusTime((String)objects[7]);
+            lists.add(arriveTerminalDto);
+        });
+        return lists;
+    }
+
+
 }

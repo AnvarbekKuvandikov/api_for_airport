@@ -35,4 +35,6 @@ public class AirLinesController
         List<AirlinesDto> list = airLinesService.getAll();
         return ResponseEntity.ok(list);
     }
+
+
 }
