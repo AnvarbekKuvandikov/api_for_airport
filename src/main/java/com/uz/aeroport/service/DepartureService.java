@@ -1,5 +1,6 @@
 package com.uz.aeroport.service;
 
+import com.uz.aeroport.dto.DepartTerminalDto;
 import com.uz.aeroport.dto.DepartureDto;
 
 import java.time.LocalDate;
@@ -19,4 +20,6 @@ public interface DepartureService
     List<DepartureDto> getNew(LocalDate date);
 
     void changeById(DepartureDto departureDto);
+
+    List<DepartTerminalDto> getDepartureTerminalData(LocalDate date1);
 }

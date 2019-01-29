@@ -1,5 +1,6 @@
 package com.uz.aeroport.controllers;
 
+import com.uz.aeroport.dto.DepartTerminalDto;
 import com.uz.aeroport.dto.DepartureDto;
 import com.uz.aeroport.service.DepartureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,15 @@ public class DepartureController
     {
         departureService.changeById(departureDto);
         return ResponseEntity.ok("Changed");
+    }
+
+    @GetMapping(value = "/terminal/date={date}")
+    public ResponseEntity<List<DepartTerminalDto>> getDepartureTerminal(@PathVariable String date)
+    {
+        LocalDate date1 = LocalDate.parse(date);
+        List<DepartTerminalDto> list = departureService.getDepartureTerminalData(date1);
+        return ResponseEntity.ok(list);
+
     }
 
 

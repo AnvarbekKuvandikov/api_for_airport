@@ -1,5 +1,6 @@
 package com.uz.aeroport.service.impl;
 
+import com.uz.aeroport.dto.DepartTerminalDto;
 import com.uz.aeroport.dto.DepartureDto;
 import com.uz.aeroport.entity.DepartureEntity;
 import com.uz.aeroport.repository.DepartureRepository;
@@ -105,6 +106,28 @@ public class DepartureServiceImpl implements DepartureService
             BeanUtils.copyProperties(departureDto,departureEntity1);
             departureRepository.save(departureEntity1);
         }
+    }
+
+    @Override
+    public List<DepartTerminalDto> getDepartureTerminalData(LocalDate date1)
+    {
+        List<Object[]> get = departureRepository.findForDepartTerminal(date1);
+        List<DepartTerminalDto> list = new ArrayList<>();
+        get.forEach(objects ->
+        {
+            DepartTerminalDto departTerminalDto = new DepartTerminalDto();
+            departTerminalDto.setTime((String)objects[0]);
+            departTerminalDto.setLogo((String)objects[1]);
+            departTerminalDto.setDestinationUzb((String)objects[2]);
+            departTerminalDto.setDestinationRus((String)objects[3]);
+            departTerminalDto.setDestinationEng((String)objects[4]);
+            departTerminalDto.setFlight((String)objects[5]);
+            departTerminalDto.setTerminal((String)objects[6]);
+            departTerminalDto.setStatus((String)objects[7]);
+            departTerminalDto.setStatusTime((String)objects[8]);
+            list.add(departTerminalDto);
+        });
+        return list;
     }
 
 
