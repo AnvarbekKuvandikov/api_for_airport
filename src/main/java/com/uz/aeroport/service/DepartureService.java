@@ -22,4 +22,5 @@ public interface DepartureService
     void changeById(DepartureDto departureDto);
 
     List<DepartTerminalDto> getDepartureTerminalData(LocalDate date1);
+
 }

@@ -67,6 +67,9 @@ public class DepartureServiceImpl implements DepartureService
             departureDto.setFlight(departureEntity.getFlight());
             departureDto.setStatusTime(departureEntity.getStatusTime());
             departureDto.setAirlineId(departureEntity.getAirlineId());
+            departureDto.setType(departureEntity.getType());
+            departureDto.setCheckInClosed(departureEntity.getCheckInClosed());
+            departureDto.setBoardingClosed(departureEntity.getBoardingClosed());
             list1.add(departureDto);
         });
         return list1;
@@ -91,6 +94,9 @@ public class DepartureServiceImpl implements DepartureService
             departureDto.setTerminal(dp.getTerminal());
             departureDto.setTime(dp.getTime());
             departureDto.setAirlineId(dp.getAirlineId());
+            departureDto.setType(dp.getType());
+            departureDto.setCheckInClosed(dp.getCheckInClosed());
+            departureDto.setBoardingClosed(dp.getBoardingClosed());
             departureDtos.add(departureDto);
         });
         return departureDtos;
@@ -125,10 +131,16 @@ public class DepartureServiceImpl implements DepartureService
             departTerminalDto.setTerminal((String)objects[6]);
             departTerminalDto.setStatus((String)objects[7]);
             departTerminalDto.setStatusTime((String)objects[8]);
+
+            departTerminalDto.setBoardingClosed((String)objects[9]);
+            departTerminalDto.setCheckInClosed((String)objects[10]);
+            departTerminalDto.setType((String)objects[11]);
+
             list.add(departTerminalDto);
         });
         return list;
     }
+
 
 
 }

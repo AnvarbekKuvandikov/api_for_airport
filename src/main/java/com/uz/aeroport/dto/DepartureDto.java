@@ -12,6 +12,7 @@ public class DepartureDto {
 
     private Date departDate;
 
+
     private String time;
 
     private String flight;
@@ -29,6 +30,36 @@ public class DepartureDto {
     private String terminal;
 
     private Long airlineId;
+
+    private String type;
+
+    private String checkInClosed;
+
+    private String boardingClosed;
+
+    public String getCheckInClosed() {
+        return checkInClosed;
+    }
+
+    public void setCheckInClosed(String checkInClosed) {
+        this.checkInClosed = checkInClosed;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBoardingClosed() {
+        return boardingClosed;
+    }
+
+    public void setBoardingClosed(String boardingClosed) {
+        this.boardingClosed = boardingClosed;
+    }
 
     public Long getId() {
         return id;

@@ -26,7 +26,7 @@ public class CheckerServiceImpl implements CheckerService
     public UserCheckerDto getChecker()
     {
         UserCheckerDto userCheckerDto = new UserCheckerDto();
-        String ff = "Admin";
+        String ff = "admin";
         UserCheckEntity userCheckEntity = userRepository.findByLogin(ff);
         BeanUtils.copyProperties(userCheckEntity,userCheckerDto);
         return userCheckerDto;

@@ -51,6 +51,7 @@ public class AirLinesServiceImpl implements AirLinesService {
         linesEntities.forEach(airLinesEntity -> {
             AirlinesDto airlinesDto = new AirlinesDto();
             airlinesDto.setNameAirline(airLinesEntity.getNameAirline());
+            airlinesDto.setImage(airLinesEntity.getImage());
             airlinesDto.setId(airLinesEntity.getId());
             result.add(airlinesDto);
         });

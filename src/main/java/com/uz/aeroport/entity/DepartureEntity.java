@@ -37,6 +37,42 @@ public class DepartureEntity implements Serializable
     @Column
     private String destinationRus;
 
+    /*Qo`shimcha*/
+    @Column
+    private String type;
+
+    @Column
+    private String checkInClosed;
+
+    @Column
+    private String boardingClosed;
+
+    /*Qo`shimcha*/
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCheckInClosed() {
+        return checkInClosed;
+    }
+
+    public void setCheckInClosed(String checkInClosed) {
+        this.checkInClosed = checkInClosed;
+    }
+
+    public String getBoardingClosed() {
+        return boardingClosed;
+    }
+
+    public void setBoardingClosed(String boardingClosed) {
+        this.boardingClosed = boardingClosed;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "airlineId",insertable = false,updatable = false)
     private AirLinesEntity airLinesEntity;

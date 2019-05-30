@@ -13,6 +13,33 @@ public class DepartTerminalDto {
     private String status;
     private String statusTime;
     private String terminal;
+    private String boardingClosed;
+    private String checkInClosed;
+    private String type;
+
+    public String getBoardingClosed() {
+        return boardingClosed;
+    }
+
+    public void setBoardingClosed(String boardingClosed) {
+        this.boardingClosed = boardingClosed;
+    }
+
+    public String getCheckInClosed() {
+        return checkInClosed;
+    }
+
+    public void setCheckInClosed(String checkInClosed) {
+        this.checkInClosed = checkInClosed;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getTerminal() {
         return terminal;
